@@ -3,9 +3,10 @@ const mongoose = require('mongoose')
 const time = require('./../lib/timeLib')
 const today = time.getLocalTime()
 
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 let ProductSchema = new Schema({
+    
     productId: {
         type: String,
         unique: true

@@ -17,9 +17,14 @@
   },
   "homepage": "https://github.com/pankajsaini123/flipkart-api#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
+    "helmet": "^3.13.0",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
-    "mongoose": "^5.2.8"
+    "mongoose": "^5.2.8",
+    "pino": "^5.1.0",
+    "shortid": "^2.2.12"
   }
 }
