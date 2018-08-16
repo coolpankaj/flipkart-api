@@ -1,0 +1,25 @@
+{
+  "name": "flipkart-api",
+  "version": "1.0.0",
+  "description": "this is small ecomerce api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pankajsaini123/flipkart-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pankajsaini123/flipkart-api/issues"
+  },
+  "homepage": "https://github.com/pankajsaini123/flipkart-api#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
+    "mongoose": "^5.2.8"
+  }
+}
