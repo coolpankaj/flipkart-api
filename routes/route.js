@@ -15,4 +15,6 @@ module.exports.setRouter = function(app){
     app.post(baseUrl + '/delete/:productId', auth.isAuthenticated, flipkartController.deleteItem);
 
     app.post(baseUrl + '/add', auth.isAuthenticated, flipkartController.addItem);
+
+    app.put(baseUrl + '/edit/:productId', auth.isAuthenticated, flipkartController.editProduct);
 }

@@ -133,10 +133,47 @@ let addItem = (req, res) => {
         })
 }
 
+let editProduct = (req, res) => {
+
+    if (check.isEmpty(req.params.productId)) {
+
+        console.log(req.params.productId)
+        logger.error('ProductId is missing', 'flipakartController: editProduct', 403)
+        let apiResponse = response.generate(true,'ProductId is missing', 403, null)
+        res.send(apiResponse)
+
+    } else  {
+
+        let options = req.body;
+        console.log(options);
+        options.lastModified = time.convertToLocalTime()
+        Product.update({ 'productId': req.params.productId }, options, { multi: true }).exec((err, result) => {
+
+            if (err) {
+
+                console.log('Error Occured.')
+                logger.error(`Error Occured : ${err}`, 'Database', 10)
+                let apiResponse = response.generate(true, 'Error Occured.', 500, null)
+                res.send(apiResponse)
+            } else if (check.isEmpty(result)) {
+
+                console.log('Product Not Found.')
+                let apiResponse = response.generate(true, 'Product Not Found', 404, null)
+                res.send(apiResponse)
+            } else {
+                console.log('Product Edited Successfully')
+                let apiResponse = response.generate(false, 'Product Edited Successfully.', 200, result)
+                res.send(apiResponse)
+            }
+        })
+    }
+}
+
 
 module.exports = {
     getAllItems: getAllItems,
     viewByproductId: viewByproductId,
     deleteItem: deleteItem,
-    addItem: addItem
+    addItem: addItem,
+    editProduct: editProduct
 }

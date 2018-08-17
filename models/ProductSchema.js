@@ -52,11 +52,13 @@ let ProductSchema = new Schema({
         default: true
     },
     productAdded: {
-        type: Date,
+        // type: Date,
+        type: String,
         default: today
     },
     lastModified: {
-        type: Date,
+        // type: Date,
+        type: String,
         default: today
     }
 })
