@@ -38,6 +38,7 @@ let viewByproductId = (req, res) => {
         res.send(apiResponse)
     } else {
         Product.findOne({ 'productId': req.params.productId }, (err, result) => {
+            
             if (err) {
                 logger.error(`Error Occured: ${err}`, 'viewByproductId: viewByproductId', 10)
                 let apiResponse = response.generate(true, 'Error Occured', 500, null)
@@ -47,6 +48,9 @@ let viewByproductId = (req, res) => {
                 let apiResponse = response.generate(true, 'item not found', 404, null)
                 res.send(apiResponse)
             } else {
+                result.views += 1;
+                result.save()
+                // console.log(result)
                 logger.info('Item Found Successfully', 'flipkartController: viewByproductId', 200)
                 let apiResponse = response.generate(false, 'Item Found Successfully', 200, result)
                 res.send(apiResponse)
