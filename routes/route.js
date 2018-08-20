@@ -1,5 +1,4 @@
 const express = require('express');
-// const router = express.Router();
 const flipkartController = require("./../controllers/controller");
 const appConfig = require("./../config/appConfig")
 const auth = require("./../middlewares/auth")
@@ -17,4 +16,6 @@ module.exports.setRouter = function(app){
     app.post(baseUrl + '/add', auth.isAuthenticated, flipkartController.addItem);
 
     app.put(baseUrl + '/edit/:productId', auth.isAuthenticated, flipkartController.editProduct);
+
+   
 }
